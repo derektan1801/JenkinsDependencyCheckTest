@@ -3,7 +3,9 @@ pipeline {
 	stages {
 		stage('Checkout SCM') {
 			steps {
-				git '/home/JenkinsDependencyCheckTest'
+				step([$class: 'WsCleanup'])
+				cleanWs()
+				checkout scm
 			}
 		}
 
